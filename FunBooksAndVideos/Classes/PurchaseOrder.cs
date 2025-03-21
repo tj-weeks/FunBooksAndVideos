@@ -1,6 +1,6 @@
 ﻿namespace FunBooksAndVideos.Classes
 {
-    public class PuchaseOrder
+    public class PurchaseOrder
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }

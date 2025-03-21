@@ -4,4 +4,6 @@
 
 /.vs
 /FunBooksAndVideos/obj
-/FunBooksAndVideos/bin/Debug/net8.0
+/FunBooksAndVideos/bin
+/FunBooksAndVideos.UnitTests/bin
+/FunBooksAndVideos.UnitTests/obj
