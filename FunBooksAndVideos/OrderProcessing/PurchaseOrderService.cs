@@ -1,15 +1,26 @@
-﻿using FunBooksAndVideos.Classes;
-
-namespace FunBooksAndVideos.OrderProcessing
+﻿namespace FunBooksAndVideos.OrderProcessing
 {
-    public class PurchaseOrderService
+    public class PurchaseOrderService : IPurchaseOrderService
     {
-        public void ProcessOrder(PurchaseOrder order)
+        private readonly ItemProcessorFactory _itemProcessorFactory;
+        private readonly ILogger<PurchaseOrderService> _logger;
+
+        public PurchaseOrderService(
+            ItemProcessorFactory itemProcessorFactory,
+            ILogger<PurchaseOrderService> logger)
         {
+            _itemProcessorFactory = itemProcessorFactory;
+            _logger = logger;
+        }
+
+        public async Task ProcessOrder(Classes.PurchaseOrder order)
+        {
+            _logger.LogInformation($"Processing PurchaseOrder request {order.Id} for customer {order.CustomerId}");
+
             foreach (var item in order.PurchaseItems)
             {
-                var orderProcessor = ItemProcessorFactory.GetPurchaseItemProcessor(item);
-                orderProcessor.Process(item, order.CustomerId);
+                var purchaseItemProcessor = _itemProcessorFactory.GetPurchaseItemProcessor(item);
+                await purchaseItemProcessor.Process(item, order.CustomerId);
             }
         }
     }

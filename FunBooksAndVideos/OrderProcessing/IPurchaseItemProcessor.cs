@@ -4,6 +4,6 @@ namespace FunBooksAndVideos.OrderProcessing
 {
     public interface IPurchaseItemProcessor
     {
-        public void Process(IPurchaseItem item, int customerId);
+        public Task Process(IPurchaseItem item, int customerId);
     }
 }
