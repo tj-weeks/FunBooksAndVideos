@@ -1,6 +1,7 @@
 ﻿using FunBooksAndVideos.Events;
 using FunBooksAndVideos.OrderProcessing;
 using FunBooksAndVideos.PurchaseOrder;
+using FunBooksAndVideos.PurchaseOrders;
 using FunBooksAndVideos.Services;
 
 namespace FunBooksAndVideos
@@ -12,7 +13,11 @@ namespace FunBooksAndVideos
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new IPurchaseItemConverter());
+                });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<PurchaseOrderCommandHandler>());

@@ -15,7 +15,7 @@ namespace FunBooksAndVideos.Services
             _logger = logger;
         }
 
-        public async Task ProcessOrder(OrderItems.PurchaseOrder order)
+        public async Task ProcessOrder(OrderItems.PurchaseOrderItem order)
         {
             _logger.LogInformation($"Processing PurchaseOrder request {order.Id} for customer {order.CustomerId}");
 

@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Events\" />
-    <Folder Include="PurchaseOrders\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

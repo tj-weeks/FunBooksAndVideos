@@ -2,6 +2,6 @@
 {
     public interface IPurchaseOrderService
     {
-        public Task ProcessOrder(OrderItems.PurchaseOrder order);
+        public Task ProcessOrder(OrderItems.PurchaseOrderItem order);
     }
 }

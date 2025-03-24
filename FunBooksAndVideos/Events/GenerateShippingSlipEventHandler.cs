@@ -4,11 +4,11 @@ namespace FunBooksAndVideos.Events
 {
     public class GenerateShippingSlipEventHandler
     {
-        private readonly ShippingSlipService _shippingSlipService;
+        private readonly IShippingSlipService _shippingSlipService;
         private readonly ILogger<GenerateShippingSlipEventHandler> _logger;
 
         public GenerateShippingSlipEventHandler(
-            ShippingSlipService shippingSlipService,
+            IShippingSlipService shippingSlipService,
             ILogger<GenerateShippingSlipEventHandler> logger)
         {
             _shippingSlipService = shippingSlipService;
