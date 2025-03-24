@@ -1,9 +1,8 @@
 using FunBooksAndVideos.OrderItems;
-using FunBooksAndVideos.PurchaseOrders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FunBooksAndVideos.Controllers
+namespace FunBooksAndVideos.PurchaseOrders
 {
     [ApiController]
     [Route("[controller]")]
