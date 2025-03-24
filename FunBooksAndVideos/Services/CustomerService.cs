@@ -1,8 +1,8 @@
 ﻿using FunBooksAndVideos.Enums;
 
-namespace FunBooksAndVideos.Entities
+namespace FunBooksAndVideos.Services
 {
-    public class Customer : ICustomer
+    public class CustomerService : ICustomerService
     {
         public async Task<bool> UpdateMembership(Membership.Type membershipType, int customerId)
         {

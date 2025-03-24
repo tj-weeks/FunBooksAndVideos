@@ -1,8 +1,8 @@
-﻿using FunBooksAndVideos.Classes;
+﻿using FunBooksAndVideos.OrderItems;
 
-namespace FunBooksAndVideos.OrderProcessing
+namespace FunBooksAndVideos.Services
 {
-    public class ShippingSlipGenerator
+    public class ShippingSlipService : IShippingSlipService
     {
         public Task<bool> Generate(ProductItem item, int customerId)
         {

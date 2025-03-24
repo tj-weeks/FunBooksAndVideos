@@ -1,6 +1,6 @@
 ﻿using FunBooksAndVideos.Enums;
 
-namespace FunBooksAndVideos.Classes
+namespace FunBooksAndVideos.OrderItems
 {
     public class MembershipItem : IPurchaseItem
     {

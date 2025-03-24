@@ -1,14 +1,14 @@
-﻿using FunBooksAndVideos.Entities;
+﻿using FunBooksAndVideos.Services;
 
 namespace FunBooksAndVideos.Events
 {
     public class ActivateMembershipEventHandler
     {
-        private readonly ICustomer _customer;
+        private readonly ICustomerService _customer;
         private readonly ILogger<ActivateMembershipEventHandler> _logger;
 
         public ActivateMembershipEventHandler(
-            ICustomer customer,
+            ICustomerService customer,
             ILogger<ActivateMembershipEventHandler> logger)
         {
             _customer = customer;

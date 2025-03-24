@@ -1,14 +1,13 @@
-﻿using FunBooksAndVideos.Entities;
-using FunBooksAndVideos.Events;
+﻿using FunBooksAndVideos.Events;
 using FunBooksAndVideos.OrderProcessing;
 using FunBooksAndVideos.PurchaseOrder;
+using FunBooksAndVideos.Services;
 
 namespace FunBooksAndVideos
 {
     public static class Program
     {
-        [Obsolete]
-        public async static Task<int> Main(string[] args)
+        public static int Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -16,11 +15,9 @@ namespace FunBooksAndVideos
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<PurchaseOrderCommandHandler>());
-
-            builder.Services.AddScoped<ICustomer, Customer>();
-            builder.Services.AddScoped<ShippingSlipGenerator>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<IShippingSlipService, ShippingSlipService>();
             builder.Services.AddScoped<ItemProcessorFactory>();
             builder.Services.AddScoped<IPurchaseOrderService, PurchaseOrderService>();
 

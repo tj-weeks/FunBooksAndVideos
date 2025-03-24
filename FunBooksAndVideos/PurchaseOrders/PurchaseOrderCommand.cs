@@ -5,11 +5,11 @@ namespace FunBooksAndVideos.PurchaseOrders
 {
     public class PurchaseOrderCommand : IRequest<PurchaseOrderResponse>
     {
-        public PurchaseOrderCommand(Classes.PurchaseOrder purchaseOrder)
+        public PurchaseOrderCommand(OrderItems.PurchaseOrder purchaseOrder)
         {
             PurchaseOrder = purchaseOrder;
         }
 
-        public Classes.PurchaseOrder PurchaseOrder { get; set; }
+        public OrderItems.PurchaseOrder PurchaseOrder { get; set; }
     }
 }

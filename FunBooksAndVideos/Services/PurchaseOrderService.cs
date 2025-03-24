@@ -1,4 +1,6 @@
-﻿namespace FunBooksAndVideos.OrderProcessing
+﻿using FunBooksAndVideos.OrderProcessing;
+
+namespace FunBooksAndVideos.Services
 {
     public class PurchaseOrderService : IPurchaseOrderService
     {
@@ -13,7 +15,7 @@
             _logger = logger;
         }
 
-        public async Task ProcessOrder(Classes.PurchaseOrder order)
+        public async Task ProcessOrder(OrderItems.PurchaseOrder order)
         {
             _logger.LogInformation($"Processing PurchaseOrder request {order.Id} for customer {order.CustomerId}");
 

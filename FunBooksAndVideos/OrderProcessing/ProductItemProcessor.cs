@@ -1,5 +1,5 @@
-﻿using FunBooksAndVideos.Classes;
-using FunBooksAndVideos.Events;
+﻿using FunBooksAndVideos.Events;
+using FunBooksAndVideos.OrderItems;
 
 namespace FunBooksAndVideos.OrderProcessing
 {

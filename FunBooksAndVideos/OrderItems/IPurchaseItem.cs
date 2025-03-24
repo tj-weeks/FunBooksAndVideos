@@ -1,4 +1,4 @@
-﻿namespace FunBooksAndVideos.Classes
+﻿namespace FunBooksAndVideos.OrderItems
 {
     public interface IPurchaseItem
     {

@@ -1,24 +1,24 @@
-﻿using FunBooksAndVideos.OrderProcessing;
+﻿using FunBooksAndVideos.Services;
 
 namespace FunBooksAndVideos.Events
 {
     public class GenerateShippingSlipEventHandler
     {
-        private readonly ShippingSlipGenerator _shippingSlipGenerator;
+        private readonly ShippingSlipService _shippingSlipService;
         private readonly ILogger<GenerateShippingSlipEventHandler> _logger;
 
         public GenerateShippingSlipEventHandler(
-            ShippingSlipGenerator shippingSlipGenerator,
+            ShippingSlipService shippingSlipService,
             ILogger<GenerateShippingSlipEventHandler> logger)
         {
-            _shippingSlipGenerator = shippingSlipGenerator;
+            _shippingSlipService = shippingSlipService;
             _logger = logger;
         }
 
         public async Task Handle(GenerateShippingSlipEvent message)
         {
             _logger.LogInformation($"Handling GenerateShippingSlipEvent for customer {message.CustomerId}");
-            await _shippingSlipGenerator.Generate(message.Item, message.CustomerId);
+            await _shippingSlipService.Generate(message.Item, message.CustomerId);
         }
     }
 }

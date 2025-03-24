@@ -1,4 +1,4 @@
-using FunBooksAndVideos.Classes;
+using FunBooksAndVideos.OrderItems;
 using FunBooksAndVideos.PurchaseOrders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,7 @@ namespace FunBooksAndVideos.Controllers
         [HttpPost(Name = "Test")]
         public async Task<IActionResult> Post()
         {
-            var purchaseOrder = new Classes.PurchaseOrder
+            var purchaseOrder = new OrderItems.PurchaseOrder
             {
                 Id = 1,
                 CustomerId = 1,
