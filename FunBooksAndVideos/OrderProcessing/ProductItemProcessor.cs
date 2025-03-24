@@ -1,16 +1,18 @@
 ﻿using FunBooksAndVideos.Classes;
 using FunBooksAndVideos.Events;
-using FunBooksAndVideos.PurchaseOrder;
 
 namespace FunBooksAndVideos.OrderProcessing
 {
     public class ProductItemProcessor : IPurchaseItemProcessor
     {
+        private readonly IEventBus _eventBus;
         private readonly ILogger<ProductItemProcessor> _logger;
 
         public ProductItemProcessor(
+            IEventBus eventBus,
             ILogger<ProductItemProcessor> logger)
         {
+            _eventBus = eventBus;
             _logger = logger;
         }
 
@@ -29,7 +31,7 @@ namespace FunBooksAndVideos.OrderProcessing
                         CustomerId = customerId
                     };
 
-                    // publish generateShippingSlipEvent;
+                    await _eventBus.Publish(generateShippingSlipEvent);
                 }
             }
             catch (Exception ex)

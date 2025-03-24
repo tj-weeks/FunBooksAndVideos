@@ -5,11 +5,14 @@ namespace FunBooksAndVideos.OrderProcessing
 {
     public class MembershipItemProcessor : IPurchaseItemProcessor
     {
+        private readonly IEventBus _eventBus;
         private readonly ILogger<MembershipItemProcessor> _logger;
 
         public MembershipItemProcessor(
+            IEventBus eventBus,
             ILogger<MembershipItemProcessor> logger)
         {
+            _eventBus = eventBus;
             _logger = logger;
         }
 
@@ -28,7 +31,7 @@ namespace FunBooksAndVideos.OrderProcessing
                         CustomerId = customerId
                     };
 
-                    // publish activateMembershipEvent
+                    await _eventBus.Publish(activateMembershipEvent);
                 }
             }
             catch (Exception ex)
