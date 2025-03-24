@@ -6,14 +6,11 @@ namespace FunBooksAndVideos.OrderProcessing
 {
     public class ProductItemProcessor : IPurchaseItemProcessor
     {
-        private readonly IMessageSession _endpointInstance;
         private readonly ILogger<ProductItemProcessor> _logger;
 
         public ProductItemProcessor(
-            IMessageSession endpointInstance,
             ILogger<ProductItemProcessor> logger)
         {
-            _endpointInstance = endpointInstance;
             _logger = logger;
         }
 
@@ -32,7 +29,7 @@ namespace FunBooksAndVideos.OrderProcessing
                         CustomerId = customerId
                     };
 
-                    await _endpointInstance.Publish(generateShippingSlipEvent);
+                    // publish generateShippingSlipEvent;
                 }
             }
             catch (Exception ex)

@@ -5,14 +5,11 @@ namespace FunBooksAndVideos.OrderProcessing
 {
     public class MembershipItemProcessor : IPurchaseItemProcessor
     {
-        private readonly IMessageSession _endpointInstance;
         private readonly ILogger<MembershipItemProcessor> _logger;
 
         public MembershipItemProcessor(
-            IMessageSession endpointInstance,
             ILogger<MembershipItemProcessor> logger)
         {
-            _endpointInstance = endpointInstance;
             _logger = logger;
         }
 
@@ -31,7 +28,7 @@ namespace FunBooksAndVideos.OrderProcessing
                         CustomerId = customerId
                     };
 
-                    await _endpointInstance.Publish(activateMembershipEvent);
+                    // publish activateMembershipEvent
                 }
             }
             catch (Exception ex)

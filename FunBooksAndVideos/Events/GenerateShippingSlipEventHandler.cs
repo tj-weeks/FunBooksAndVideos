@@ -2,7 +2,7 @@
 
 namespace FunBooksAndVideos.Events
 {
-    public class GenerateShippingSlipEventHandler : IHandleMessages<GenerateShippingSlipEvent>
+    public class GenerateShippingSlipEventHandler
     {
         private readonly ShippingSlipGenerator _shippingSlipGenerator;
         private readonly ILogger<GenerateShippingSlipEventHandler> _logger;
@@ -15,7 +15,7 @@ namespace FunBooksAndVideos.Events
             _logger = logger;
         }
 
-        public async Task Handle(GenerateShippingSlipEvent message, IMessageHandlerContext context)
+        public async Task Handle(GenerateShippingSlipEvent message)
         {
             _logger.LogInformation($"Handling GenerateShippingSlipEvent for customer {message.CustomerId}");
             await _shippingSlipGenerator.Generate(message.Item, message.CustomerId);
