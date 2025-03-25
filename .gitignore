@@ -8,3 +8,5 @@
 /FunBooksAndVideos.UnitTests/bin
 /FunBooksAndVideos.UnitTests/obj
 /.learningtransport
+/FunBooksAndVideos.IntTests/bin/Debug/net8.0
+/FunBooksAndVideos.IntTests/obj
