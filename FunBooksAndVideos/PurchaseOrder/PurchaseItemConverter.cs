@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace FunBooksAndVideos.PurchaseOrder
 {
-    public class IPurchaseItemConverter : JsonConverter<IPurchaseItem>
+    public class PurchaseItemConverter : JsonConverter<IPurchaseItem>
     {
         public override IPurchaseItem Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {

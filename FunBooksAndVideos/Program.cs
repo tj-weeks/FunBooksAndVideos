@@ -1,7 +1,6 @@
 ﻿using FunBooksAndVideos.Events;
 using FunBooksAndVideos.OrderProcessing;
 using FunBooksAndVideos.PurchaseOrder;
-using FunBooksAndVideos.PurchaseOrders;
 using FunBooksAndVideos.Services;
 
 namespace FunBooksAndVideos
@@ -16,7 +15,7 @@ namespace FunBooksAndVideos
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.Converters.Add(new IPurchaseItemConverter());
+                    options.JsonSerializerOptions.Converters.Add(new PurchaseItemConverter());
                 });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
